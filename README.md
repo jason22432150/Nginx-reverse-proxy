@@ -39,6 +39,9 @@ http {
 ```
 這時候我們可以在「/etc/nginx/sites-available」建立一個用來放網站配置的配置檔
 ```diff 
++ 有負數個網域的話就從這邊開始重複
+```
+```diff 
 - (( 更改  your-domain.name  為你的網址 (1處)
 ```
 ```sh
@@ -62,9 +65,6 @@ server {
 }
 ```
 然後建立軟連結至「/etc/nginx/sites-enabled」之下
-```diff 
-+ 有負數個網域的話就從這邊開始重複
-```
 
 ```diff 
 - (( 更改  your-domain.name  為你的網址 (2處)
