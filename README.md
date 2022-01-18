@@ -48,6 +48,10 @@ http {
 sudo vim /etc/nginx/sites-available/your-domain.name
 ```
 然後打上
+```diff 
+- (( 更改  your-domain.name  為你的網址 (1處)
+- 修改 proxy_pass http://localhost:3000; 後面的端口
+```
 ```nginxconf
 server {
     listen 80;
