@@ -62,7 +62,7 @@ server {
     
             server_name http://your-domain.name;
     
-            location /cloudreve {
+            location /{
                     proxy_pass http://localhost:2095;
                     proxy_redirect   off;
                     proxy_set_header Host $host;
