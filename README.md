@@ -54,21 +54,23 @@ sudo vim /etc/nginx/sites-available/your-domain.name
 ```
 ```nginxconf
 server {
-    listen 80;
-    listen [::]:80;
-    index index.html;
-    server_name your-domain.name;    # 若沒有domain的話，該行可以拿掉
+            listen 80 default_server;
+            listen [::]:80 default_server;
 
-    location / {
-        proxy_pass http://localhost:3000;
-        # 把 IP、Protocol 等 header 都一起送給反向代理的 server
-        proxy_redirect   off;
-        proxy_set_header Host $host;
-        proxy_set_header X-Forwarded-Host $server_name;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $http_x_forwarded_proto;
-    }
+            root /var/www/html;
+            index index.html index.htm index.nginx-debian.html;
+    
+            server_name http://your-domain.name;
+    
+            location /cloudreve {
+                    proxy_pass http://localhost:2095;
+                    proxy_redirect   off;
+                    proxy_set_header Host $host;
+                    proxy_set_header X-Forwarded-Host $server_name;
+                    proxy_set_header X-Real-IP $remote_addr;
+                    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                    proxy_set_header X-Forwarded-Proto $http_x_forwarded_proto;
+            }
 }
 ```
 然後建立軟連結至「/etc/nginx/sites-enabled」之下
