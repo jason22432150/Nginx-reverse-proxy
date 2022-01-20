@@ -54,8 +54,8 @@ sudo vim /etc/nginx/sites-available/your-domain.name
 ```
 ```nginxconf
 server {
-            listen 80 default_server;
-            listen [::]:80 default_server;
+            listen 80;
+            listen [::]:80;
 
             root /var/www/html;
             index index.html index.htm index.nginx-debian.html;
