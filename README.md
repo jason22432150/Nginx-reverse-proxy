@@ -60,7 +60,7 @@ server {
             root /var/www/html;
             index index.html index.htm index.nginx-debian.html;
     
-            server_name http://your-domain.name;
+            server_name your-domain.name;
     
             location /{
                     proxy_pass http://localhost:2095;
