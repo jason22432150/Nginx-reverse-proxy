@@ -45,7 +45,7 @@ http {
 - (( 更改  your-domain.name  為你的網址 (1處)
 ```
 ```sh
-sudo vim /etc/nginx/sites-available/your-domain.name
+sudo nano /etc/nginx/sites-available/your-domain.name
 ```
 然後打上
 ```diff 
